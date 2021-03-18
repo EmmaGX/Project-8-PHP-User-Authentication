@@ -18,3 +18,12 @@ if (!empty(findUserByUserName($username))) {
     $session->getFlashBag()->add('error', 'User already exists');
     redirect('../register.php');
 }
+
+
+// Creates a hashed password to be saved in the database
+$hashed = password_hash($password, PASSWORD_DEFAULT);
+
+// Creates a user and adds a message and redirects to the home page
+$user = createUser($username, $hashed);
+$session->getFlashBag()->add('success', 'User added');
+redirect('../index.php');

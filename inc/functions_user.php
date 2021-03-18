@@ -17,3 +17,23 @@ function findUserByUserName($username)
         throw $e;
     }
 }
+
+
+// This function creates the user
+function createUser($username, $password)
+{
+    global $db;
+
+    try {
+        $query = "INSERT INTO users (username, password) VALUES (:username, :password)";
+        $stmt = $db->prepare($query);
+        $stmt->bindParam(':username', $username);
+        $stmt->bindParam(':password', $password);
+        $stmt->execute();
+        // Uses the findUserByUsername function to return the user if the
+        // user was created
+        return findUserByUserName($username);
+    } catch (\Exception $e) {
+        throw $e;
+    }
+}
