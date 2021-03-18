@@ -8,3 +8,14 @@ function isAuthenticated()
 
     return $session->get('auth_logged_in', false);
 }
+
+// Allows the user to log in automatically upon registration
+function saverUserSession($user)
+{
+    global $session;
+
+    $session->set('auth_logged_in', true);
+    $session->set('auth_user_id', (int) $user['id']);
+
+    $session->getFlashBag()->add('success', 'Successfully Logged In');
+}

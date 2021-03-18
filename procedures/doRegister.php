@@ -25,5 +25,6 @@ $hashed = password_hash($password, PASSWORD_DEFAULT);
 
 // Creates a user and adds a message and redirects to the home page
 $user = createUser($username, $hashed);
+saverUserSession($user);
 $session->getFlashBag()->add('success', 'User added');
 redirect('../index.php');
