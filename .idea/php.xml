@@ -81,9 +81,12 @@
       <path value="$USER_HOME$/.composer/vendor/doctrine/instantiator" />
       <path value="$USER_HOME$/.composer/vendor/halleck45/phpmetrics" />
       <path value="$USER_HOME$/.composer/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/../../xampp/php/PEAR" />
     </include_path>
   </component>
-  <component name="PhpProjectSharedConfiguration" php_language_level="7" />
+  <component name="PhpProjectSharedConfiguration" php_language_level="7.1">
+    <option name="suggestChangeDefaultLanguageLevel" value="false" />
+  </component>
   <component name="PhpUnit">
     <phpunit_settings>
       <PhpUnitSettings custom_loader_path="$USER_HOME$/.composer/vendor/autoload.php" />
