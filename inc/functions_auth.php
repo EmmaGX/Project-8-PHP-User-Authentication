@@ -9,6 +9,17 @@ function isAuthenticated()
     return $session->get('auth_logged_in', false);
 }
 
+// This function will be used on pages for authentication
+// And will use the isAuthenticated() from above
+function requireAuth()
+{
+    if (!isAuthenticated()) {
+        global $session;
+        $session->getFlashBag()->add('error', 'Not Authorized');
+        redirect('login.php');
+    }
+}
+
 // Allows the user to log in automatically upon registration
 function saverUserSession($user)
 {

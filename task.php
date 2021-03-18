@@ -1,5 +1,6 @@
 <?php
 require_once 'inc/bootstrap.php';
+requireAuth();
 
 $pageTitle = "Task | Time Tracker";
 $page = "task";
@@ -25,6 +26,7 @@ include 'inc/header.php';
             if (isset($error_message)) {
                 echo "<p class='message'>$error_message</p>";
             }
+            $task = '';
             ?>
             <form class="form-container form-add" method="post" action="inc/actions_tasks.php">
                 <table>

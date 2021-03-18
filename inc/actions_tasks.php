@@ -1,10 +1,12 @@
 <?php
 require_once "bootstrap.php";
+requireAuth();;
 
 $action = request()->get('action');
 $task_id = request()->get('task_id');
 $task = request()->get('task');
 $status = request()->get('status');
+
 
 $url="../task_list.php";
 if (request()->get('filter')) {
@@ -16,7 +18,7 @@ case "add":
     if (empty($task)) {
         $session->getFlashBag()->add('error', 'Please enter a task');
     } else {
-        if (createTask(['task'=>$task, 'status'=>$status])) {
+        if (createTask(['task'=>$task, 'status'=>$status],$session->get('auth_id'))) {
             $session->getFlashBag()->add('success', 'New Task Added');
         }
     }
