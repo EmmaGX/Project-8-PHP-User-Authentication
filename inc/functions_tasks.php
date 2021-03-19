@@ -1,14 +1,15 @@
 <?php
 //task functions
 
-function getTasks($user_id = null)
+function getTasks($user_id, $where = null)
 {
     global $db;
-    $query = "SELECT * FROM tasks ";
-    if (!empty($where)) $query .= "WHERE $user_id";
+    $query = "SELECT * FROM tasks WHERE user_id=:user_id";
+    if (!empty($where)) $query .= " AND $where";
     $query .= " ORDER BY id";
     try {
         $statement = $db->prepare($query);
+        $statement->bindParam('user_id', $user_id);
         $statement->execute();
         $tasks = $statement->fetchAll();
     } catch (Exception $e) {
@@ -17,16 +18,18 @@ function getTasks($user_id = null)
     }
     return $tasks;
 }
-
-function getIncompleteTasks()
+//Return all the incomplete task associated to a specific user
+function getIncompleteTasks($user_id)
 {
-    return getTasks('status=0');
+    return getTasks($user_id, 'status=0');
+}
+//Return all the complete task associated to a specific user
+function getCompleteTasks($user_id)
+{
+    return getTasks($user_id, 'status=1');
 }
 
-function getCompleteTasks()
-{
-    return getTasks('status=1');
-}
+
 
 function getTask($task_id)
 {
