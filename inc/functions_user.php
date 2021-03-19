@@ -18,6 +18,23 @@ function findUserByUserName($username)
     }
 }
 
+// Finds the user by their id
+function findUserById($userId)
+{
+    global $db;
+
+    try {
+        $query = "SELECT * FROM users WHERE id = :userId";
+        $stmt = $db->prepare($query);
+        $stmt->bindParam(':userId', $userId);
+        $stmt->execute();
+        return $stmt->fetch();
+
+    } catch (\Exception $e) {
+        throw $e;
+    }
+}
+
 
 // This function creates the user
 function createUser($username, $password)
@@ -36,4 +53,27 @@ function createUser($username, $password)
     } catch (\Exception $e) {
         throw $e;
     }
+}
+
+// Updates users password in the database
+function updatePassword($password, $userId)
+{
+    global $db;
+
+    try {
+        $query = 'UPDATE users SET password = :password WHERE id = :userId';
+        $stmt = $db->prepare($query);
+        $stmt->bindParam(':password', $password);
+        $stmt->bindParam(':userId', $userId);
+        $stmt->execute();
+        if ($stmt->rowCount() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    } catch (\Exception $e) {
+        throw $e;
+    }
+
+    return true;
 }

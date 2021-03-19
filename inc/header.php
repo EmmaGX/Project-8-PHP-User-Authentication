@@ -63,11 +63,12 @@
             <?php endif; ?>
         </ul>
         <ul class="nav">
-            <li class="nav-item task<?php if ($page == "account") { echo " on"; } ?>"><a class="nav-link" href="account.php">My Account</a></li>
+<!--            <li class="nav-item task--><?php //if ($page == "account") { echo " on"; } ?><!--"><a class="nav-link" href="account.php">My Account</a></li>-->
 
 <!--        Only show login and register if the user is not logged in and
             show logout if there is a user logged in    -->
             <?php if (isAuthenticated()) : ?>
+            <li class="nav-item tasks"><a class="nav-link" href="account.php">My Account</a></li>
             <li class="nav-item tasks"><a class="nav-link" href="procedures/doLogout.php">Logout</a></li>
             <?php else: ?>
             <li class="nav-item tasks<?php if ($page == "login") { echo " on"; } ?>"><a class="nav-link" href="login.php">Login</a></li>

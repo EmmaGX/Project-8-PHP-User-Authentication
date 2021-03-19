@@ -20,6 +20,13 @@ function requireAuth()
     }
 }
 
+// Gets the authenticated users id
+function getAuthenticatedUser()
+{
+    global $session;
+    return findUserById($session->get('auth_user_id'));
+}
+
 // Allows the user to log in automatically upon registration
 function saverUserSession($user)
 {
