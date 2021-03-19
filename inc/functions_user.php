@@ -1,5 +1,19 @@
 <?php
 
+function getAllUsers()
+{
+    global $db;
+
+    try {
+        $query = "SELECT * FROM users";
+        $stmt = $db->prepare($query);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    } catch (\Exception $e) {
+        throw $e;
+    }
+}
+
 // This function will return an empty array if no username is found, or
 // if a user is found an associative array of the users details from the
 // database

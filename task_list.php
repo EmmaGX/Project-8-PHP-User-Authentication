@@ -36,30 +36,32 @@ include 'inc/header.php';
                     <li<?php if ($filter=='complete') echo ' class="on"'; ?>><a href="task_list.php?filter=complete">Complete</a></li>
                     <li<?php if ($filter=='all') echo ' class="on"'; ?>><a href="task_list.php?filter=all">All</a></li>
                 </ul>
-                  <table class="items">
-                      <tr><th>Status</th><th>Title</th><th>Action</th></tr>
+                    <table class="items">
+                        <tr><th>Status</th><th>Title</th><th>Action</th></tr>
                         <?php
-                        foreach ($tasks as $item) {
-                            echo "<tr><td>";
-                            echo "<input type='checkbox' onChange='javascript:location=\"inc/actions_tasks.php?action=status&task_id=".$item['id'];
-                            if (!empty($filter)) {
-                                echo "&filter=$filter";
-                            }
-                            if ($item['status']) {
-                                echo "&status=0\"' checked";
-                            } else {
-                                echo "&status=1\"' ";
-                            }
-                            echo " />";
-                            echo "</td><td width='100%'>";
+                        foreach ($tasks as $task) {
+                            if (isOwner($task['user_id'])) {
+                                echo "<tr><td>";
+                                echo "<input type='checkbox' onChange='javascript:location=\"inc/actions_tasks.php?action=status&task_id=" . $item['id'];
+                                if (!empty($filter)) {
+                                    echo "&filter=$filter";
+                                }
+                                if ($task['status']) {
+                                    echo "&status=0\"' checked";
+                                } else {
+                                    echo "&status=1\"' ";
+                                }
+                                echo " />";
+                                echo "</td><td width='100%'>";
 
-                            echo "<a href='task.php?id=" . $item['id'] . "'>" . $item['task'] . "</a>";
-                            echo "</td><td>";
+                                echo "<a href='task.php?id=" . $task['id'] . "'>" . $task['task'] . "</a>";
+                                echo "</td><td>";
 
-                            echo "<a href='inc/actions_tasks.php?action=delete&task_id=".$item['id'];
-                            echo "' onclick=\"return confirm('Are you sure you want tot delete this task?');\"";
-                            echo "'>Delete</a>";
-                            echo "</td></tr>\n";
+                                echo "<a href='inc/actions_tasks.php?action=delete&task_id=" . $task['id'];
+                                echo "' onclick=\"return confirm('Are you sure you want tot delete this task?');\"";
+                                echo "'>Delete</a>";
+                                echo "</td></tr>\n";
+                            }
                         }
                         ?>
                   </table>
