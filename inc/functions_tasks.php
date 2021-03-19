@@ -1,11 +1,11 @@
 <?php
 //task functions
 
-function getTasks($where = null)
+function getTasks($user_id = null)
 {
     global $db;
     $query = "SELECT * FROM tasks ";
-    if (!empty($where)) $query .= "WHERE $where";
+    if (!empty($where)) $query .= "WHERE $user_id";
     $query .= " ORDER BY id";
     try {
         $statement = $db->prepare($query);
