@@ -58,7 +58,7 @@ include 'inc/header.php';
                                 echo "</td><td>";
 
                                 echo "<a href='inc/actions_tasks.php?action=delete&task_id=" . $task['id'];
-                                echo "' onclick=\"return confirm('Are you sure you want tot delete this task?');\"";
+                                echo "' onclick=\"return confirm('Are you sure you want to delete this task?');\"";
                                 echo "'>Delete</a>";
                                 echo "</td></tr>\n";
                             }
