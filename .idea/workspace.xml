@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="85fe7df0-0ef1-49b8-9fd4-3f7d81ccd38e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inc/functions_tasks.php" beforeDir="false" afterPath="$PROJECT_DIR$/inc/functions_tasks.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inc/todo.db" beforeDir="false" afterPath="$PROJECT_DIR$/inc/todo.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task_list.php" beforeDir="false" afterPath="$PROJECT_DIR$/task_list.php" afterDir="false" />
-    </list>
+    <list default="true" id="85fe7df0-0ef1-49b8-9fd4-3f7d81ccd38e" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -223,7 +218,7 @@
       <workItem from="1551203513957" duration="10181000" />
       <workItem from="1616085588843" duration="4149000" />
       <workItem from="1616091313644" duration="23274000" />
-      <workItem from="1616169791238" duration="721000" />
+      <workItem from="1616169791238" duration="1268000" />
     </task>
     <servers />
   </component>
